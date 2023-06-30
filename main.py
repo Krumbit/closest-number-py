@@ -2,9 +2,16 @@ import os
 import random
 
 # Parse the int from user input
-def inp(text):
-    return int(input(text))
-
+def validate_input(text):
+    while True:
+        try:
+            i = int(input(text))
+            if 0 <= i <= 100:
+                return i
+            else:
+                print("Please enter a number between 0 and 100.")
+        except ValueError:
+            print("Please enter a valid integer")
 
 def game_loop():
     # Clears the screen
@@ -12,8 +19,8 @@ def game_loop():
 
     # Get player input and number to guess
     to_guess = random.randint(1, 100)
-    p1guess = inp("Player 1 Guess: ")
-    p2guess = inp("Player 2 Guess: ")
+    p1guess = validate_input("Player 1 Guess: ")
+    p2guess = validate_input("Player 2 Guess: ")
 
     # Find the distance of player guess to the number to guess
     p1diff = abs(to_guess - p1guess)
@@ -32,7 +39,6 @@ def game_loop():
 
     # Ask the player if they want to play agian
     play_again()
-
 
 def play_again():
     print("\n")
