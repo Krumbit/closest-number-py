@@ -37,14 +37,14 @@ def game_loop():
     elif p1diff == p2diff:
         print("It's a tie!")
 
-    # Ask the player if they want to play agian
+    # Ask the player if they want to play again
     play_again()
 
 def play_again():
     print("\n")
     ans = input("Play again? (y/n): ")
 
-    # Restart the game loop if they want to play again, exit the script if no.
+    # Restart the game loop if they want to play again, exit the script if not
     if ans == "y":
         game_loop()
     elif ans == "n":
